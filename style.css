@@ -1,0 +1,332 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #f5f5f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #1d1d1f;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.game-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 18px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    padding: 30px;
+    text-align: center;
+    max-width: 900px;
+    width: 95%;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+h1 {
+    color: #000;
+    margin-bottom: 30px;
+    font-weight: 600;
+    font-size: 2.5rem;
+    letter-spacing: -0.5px;
+}
+
+.game-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.game-panel {
+    flex: 1;
+    min-width: 400px;
+}
+
+.side-panel {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.score-container {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+#score {
+    color: #06c;
+    margin-bottom: 5px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.game-status {
+    font-size: 0.9rem;
+    color: #86868b;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.game-area {
+    margin: 0 auto;
+    position: relative;
+}
+
+canvas {
+    background-color: #fbfbfd;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: none;
+}
+
+.difficulty {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+#difficulty-select {
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid #d2d2d7;
+    background-color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: inherit;
+    color: #1d1d1f;
+    transition: all 0.2s ease;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    padding-right: 30px;
+}
+
+#difficulty-select:focus {
+    outline: none;
+    border-color: #0071e3;
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.3);
+}
+
+.controls {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+button {
+    background-color: #0071e3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    letter-spacing: -0.01em;
+}
+
+button:hover {
+    background-color: #0077ed;
+    transform: scale(1.02);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.instructions {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.instructions h2 {
+    color: #1d1d1f;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.instructions ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.instructions li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+    color: #515154;
+    font-size: 0.95rem;
+}
+
+.instructions li:before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #06c;
+    font-weight: bold;
+}
+
+.leaderboard {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.leaderboard h2 {
+    color: #1d1d1f;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.leaderboard-list {
+    margin-top: 15px;
+}
+
+.leaderboard-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.leaderboard-item:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.leaderboard-rank {
+    font-weight: 600;
+    color: #06c;
+}
+
+.leaderboard-score {
+    font-weight: 600;
+    color: #1d1d1f;
+}
+
+.leaderboard-empty {
+    text-align: center;
+    color: #86868b;
+    padding: 20px 0;
+    font-style: italic;
+}
+
+.new-record {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #06c;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    animation: pulse 1.5s infinite;
+    box-shadow: 0 0 15px rgba(0, 102, 204, 0.7);
+}
+
+@keyframes pulse {
+    0% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.1);
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+#pause-btn {
+    background-color: #FFC107;
+}
+
+#pause-btn:hover {
+    background-color: #e6af06;
+}
+
+#restart-btn {
+    background-color: #2196F3;
+}
+
+#restart-btn:hover {
+    background-color: #0b7dda;
+}
+
+.instructions {
+    margin-top: 20px;
+    text-align: left;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.instructions h2 {
+    font-size: 1.2rem;
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+.instructions p {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 500px) {
+    .game-container {
+        padding: 10px;
+    }
+    
+    canvas {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    button {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}

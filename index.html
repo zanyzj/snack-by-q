@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪吃蛇游戏</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- 使用系统默认的苹果风格字体 -->
+</head>
+<body>
+    <div class="game-container">
+        <h1>贪吃蛇游戏</h1>
+        <div class="game-wrapper">
+            <div class="game-panel">
+                <div class="score-container">
+                    <span>分数: </span>
+                    <span id="score">0</span>
+                    <div class="game-status" id="game-status">按空格键或点击开始按钮开始游戏</div>
+                </div>
+                <div class="game-area">
+                    <canvas id="game" width="400" height="400"></canvas>
+                </div>
+                <div class="difficulty">
+                    <label for="difficulty-select">难度: </label>
+                    <select id="difficulty-select">
+                        <option value="5">简单</option>
+                        <option value="7" selected>中等</option>
+                        <option value="10">困难</option>
+                        <option value="15">专家</option>
+                    </select>
+                </div>
+                <div class="controls">
+                    <button id="start-btn">开始游戏</button>
+                    <button id="pause-btn">暂停</button>
+                    <button id="restart-btn">重新开始</button>
+                </div>
+            </div>
+            
+            <div class="side-panel">
+                <div class="leaderboard">
+                    <h2>排行榜</h2>
+                    <div class="leaderboard-list" id="leaderboard-list">
+                        <div class="leaderboard-empty">暂无记录</div>
+                    </div>
+                </div>
+                
+                <div class="instructions">
+                    <h2>游戏说明</h2>
+                    <ul>
+                        <li>使用键盘方向键 ↑ ↓ ← → 或 WASD 控制蛇的移动方向</li>
+                        <li>在移动设备上可以通过滑动屏幕控制方向</li>
+                        <li>空格键可以暂停/继续游戏</li>
+                        <li>吃到食物可以增加分数和蛇的长度</li>
+                        <li>撞到墙壁或自己的身体游戏结束</li>
+                        <li>打破记录会获得特殊奖励动画</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
